@@ -29,16 +29,27 @@ $(document).ready(function() {
 
 	fb.on("child_added", function(snapshot) {
 
-		console.log(snapshot.val().name);
-		console.log(snapshot.val().destination);
-		console.log(moment(snapshot.val().firstTrainTime).format('HH:mm'));
-		console.log(snapshot.val().frequency);
+		console.log("Train Name: " + snapshot.val().name);
+		console.log("Destination: " + snapshot.val().destination);
+		console.log("First Train: " + snapshot.val().firstTrainTime);
+		console.log("Frequency: " + snapshot.val().frequency);
+
+		var firstTrainMoment = moment(snapshot.val().firstTrainTime, "hh:mm").subtract(1, "years");
+		var currentMoment = moment();
+		var diffTime = moment().diff(moment(firstTrainMoment), "minutes");
+		var remainder = diffTime % snapshot.val().frequency;
+		var minUntilTrain = snapshot.val().frequency - remainder;
+		var nextTrain = moment().add(minUntilTrain, "minutes");
+
+		console.log("Next Train Time: " + moment(nextTrain).format("hh:mm A"));
+		console.log("Minutes Until: " + minUntilTrain);
+		console.log("====================");
 
 		$('#display').append("<tr><td id='nameDisplay'>" + snapshot.val().name +
 			"</td><td id='destinationDisplay'>" + snapshot.val().destination +
 			"</td><td id='frequencyDisplay'>" + "Every " + snapshot.val().frequency + " mins" +
-			"</td><td id='nextArrivalDisplay'>" +
-			"</td><td id='minutesAwayDisplay'></td>");
+			"</td><td id='nextArrivalDisplay'>" + moment(nextTrain).format("hh:mm A") +
+			"</td><td id='minutesAwayDisplay'>" + minUntilTrain + " minutes until arrival</td>");
 
 
 	}, function (errorObject) {

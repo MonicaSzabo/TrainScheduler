@@ -37,22 +37,22 @@
   	<div class="panel panel-default middlePanel">
   		<div class="panel-heading">Add Train</div>
   		<div class="panel-body">
-			<form role="form">
+			<form data-toggle="validator" role="form">
 			  <div class="form-group">
-			    <label for="text">Train Name</label>
-			    <input type="text" class="form-control" id="nameinput">
+			    <label for="text" class="control-label">Train Name</label>
+			    <input type="text" class="form-control" id="nameinput" placeholder="Choo Choo Express" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="text">Destination</label>
-			    <input type="text" class="form-control" id="destinationinput">
+			    <input type="text" class="form-control" id="destinationinput" placeholder="Paris" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="text">First Train Time (HH:mm - military time)</label>
-			    <input type="text" class="form-control" id="firstTraininput">
+			    <input type="text" class="form-control" id="firstTraininput" placeholder="04:15 or 15:32" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="text">Frequency (min)</label>
-			    <input type="number" class="form-control" id="frequencyinput">
+			    <input type="number" class="form-control" id="frequencyinput" placeholder="35" required>
 			  </div>
 			  <button type="submit" class="btn btn-default" id="addTrain">Submit</button>
 			</form>
