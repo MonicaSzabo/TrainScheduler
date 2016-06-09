@@ -15,8 +15,8 @@
 		<div id="currentTime"></div>
 	</div>
 
-	<div class="panel panel-default middlePanel">
-  		<div class="panel-heading">Current Train Schedule</div>
+	<div class="panel panel-success">
+  		<div class="panel-heading"><h3 class="panel-title">Current Train Schedule</h3></div>
   		<div class="panel-body">
   		<table class="table table-hover table-responsive">
 	        <thead>
@@ -26,6 +26,7 @@
 				<th>Frequency (min)</th>
 				<th>Next Arrival</th>
 				<th>Minutes Away</th>
+				<th>Edit</th>
 				</tr>
 			</thead>
 			<tbody id="display">
@@ -34,12 +35,12 @@
   		</div>
   	</div>
 
-  	<div class="panel panel-default middlePanel">
-  		<div class="panel-heading">Add Train</div>
+  	<div class="panel panel-success">
+  		<div class="panel-heading"><h3 class="panel-title">Add Train</h3></div>
   		<div class="panel-body">
-			<form data-toggle="validator" role="form">
+			<form role="form">
 			  <div class="form-group">
-			    <label for="text" class="control-label">Train Name</label>
+			    <label for="nameinput" class="control-label">Train Name</label>
 			    <input type="text" class="form-control" id="nameinput" placeholder="Choo Choo Express" required>
 			  </div>
 			  <div class="form-group">
