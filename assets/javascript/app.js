@@ -89,8 +89,8 @@ $(document).ready(function() {
 			"</td><td id='frequencyDisplay'>" + "Every " + snapshot.val().frequency + " mins" +
 			"</td><td id='nextArrivalDisplay'>" + moment(nextTrain).format("hh:mm A") +
 			"</td><td id='minutesAwayDisplay'>" + minUntilTrain + " minutes until arrival" +
-			"</td><td id='editbuttons'><button class='remove' data-indexNum=" + globalIndex + "><div class='glyphicon glyphicon-trash'></div></button> " +
-			"<button class='edit' data-indexNum=" + globalIndex + "><div class='glyphicon glyphicon-pencil'></div></button></td>");
+			"</td><td id='editbuttons'><button class='remove' data-indexNum=" + globalIndex + " title='Remove Train?'><div class='glyphicon glyphicon-trash'></div></button> " +
+			"<button class='edit' data-indexNum=" + globalIndex + " title='Edit Train?'><div class='glyphicon glyphicon-pencil'></div></button></td>");
 
 		globalIndex++;
 
