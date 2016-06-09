@@ -1,0 +1,15 @@
+body {
+	background-image: url(../images/train.jpg)
+}
+
+.jumbotron {
+	background: rgb(105, 105, 105);
+	background: rgba(105, 105, 105, .5);	
+	color: #fff;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.middlePanel {
+	background: rgb(105, 105, 105);
+	background: rgba(105, 105, 105, .7);
+}
