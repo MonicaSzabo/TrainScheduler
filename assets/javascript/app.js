@@ -12,10 +12,10 @@ $(document).ready(function() {
 
 	//Displays the current time
 	var currentTime = moment().format('h:mm A');
-	$('#currentTime').html("The time is now: " + currentTime)
+	$('#currentTime').html("The time is now: " + currentTime);
 
 	//When you add a train to the database
-	$("#my-form").on("submit", function() {
+	$('#my-form').on('submit', function() {
 		name = $('#nameinput').val().trim();
 		destination = $('#destinationinput').val().trim(); 
 		firstTrainTime = $('#firstTraininput').val().trim();
@@ -51,7 +51,7 @@ $(document).ready(function() {
 		name = prompt("What do you want the name to be?");
 		destination = prompt("What do you want the destination to be?");
 		firstTrainTime = prompt("What time did the first train arrive? (HH:mm - military time)");
-		frequency = prompt("How often does it arrive? (minutes)");
+		frequency = prompt("How often does it arrive? (in minutes)");
 
 
 		fb.child(trainIDs[num]).set({
@@ -67,10 +67,10 @@ $(document).ready(function() {
 
 	//Will display changes when there are children added to the database
 	fb.on("child_added", function(snapshot) {
-		console.log("Train Name: " + snapshot.val().name);
-		console.log("Destination: " + snapshot.val().destination);
-		console.log("First Train: " + snapshot.val().firstTrainTime);
-		console.log("Frequency: " + snapshot.val().frequency);
+
+		if(!moment(snapshot.val().firstTrainTime, "HH:mm").isValid()) {
+			alert("The train on line " + (globalIndex + 1) + " is not valid.  Please edit train and enter a military time, for example 04:15 or 18:23.");
+		}
 
 		//Calculating the next train arrival time and the minutes until it arrives
 		var firstTrainMoment = moment(snapshot.val().firstTrainTime, "hh:mm").subtract(1, "years");
@@ -79,6 +79,10 @@ $(document).ready(function() {
 		var minUntilTrain = snapshot.val().frequency - remainder;
 		var nextTrain = moment().add(minUntilTrain, "minutes");
 
+		console.log("Train Name: " + snapshot.val().name);
+		console.log("Destination: " + snapshot.val().destination);
+		console.log("First Train: " + snapshot.val().firstTrainTime);
+		console.log("Frequency: " + snapshot.val().frequency);
 		console.log("Next Train Time: " + moment(nextTrain).format("hh:mm A"));
 		console.log("Minutes Until: " + minUntilTrain);
 		console.log("====================");
@@ -110,6 +114,5 @@ $(document).ready(function() {
             }
         );
     });
-
 
 });
