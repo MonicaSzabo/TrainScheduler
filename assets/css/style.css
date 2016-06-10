@@ -1,5 +1,11 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
 body {
-	background-image: url(../images/train.jpg)
+	background-image: url(../images/train.jpg);
+	background-position: center;
+	background-size: cover;
 }
 
 .jumbotron {
@@ -7,4 +13,14 @@ body {
 	background: rgba(105, 105, 105, .5);	
 	color: #fff;
 	text-shadow: 2px 2px 4px #000000;
+}
+
+.panel-success>.panel-heading {
+	color: #fff;
+    background-color: #758FB2;
+    border-color: #f9ec8c;
+}
+
+.panel-success {
+    border-color: #f9ec8c;
 }

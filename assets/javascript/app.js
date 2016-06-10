@@ -15,7 +15,7 @@ $(document).ready(function() {
 	$('#currentTime').html("The time is now: " + currentTime)
 
 	//When you add a train to the database
-	$("#addTrain").on("click", function() {
+	$("#my-form").on("submit", function() {
 		name = $('#nameinput').val().trim();
 		destination = $('#destinationinput').val().trim(); 
 		firstTrainTime = $('#firstTraininput').val().trim();
@@ -50,8 +50,8 @@ $(document).ready(function() {
 
 		name = prompt("What do you want the name to be?");
 		destination = prompt("What do you want the destination to be?");
-		firstTrainTime = prompt("What time did the first train arrive? (HH:mm)");
-		frequency = prompt("How often does it arrive?");
+		firstTrainTime = prompt("What time did the first train arrive? (HH:mm - military time)");
+		frequency = prompt("How often does it arrive? (minutes)");
 
 
 		fb.child(trainIDs[num]).set({
