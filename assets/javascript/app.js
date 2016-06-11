@@ -68,9 +68,10 @@ $(document).ready(function() {
 	//Will display changes when there are children added to the database
 	fb.on("child_added", function(snapshot) {
 
-		if(!moment(snapshot.val().firstTrainTime, "HH:mm").isValid()) {
-			alert("The train on line " + (globalIndex + 1) + " is not valid.  Please edit train and enter a military time, for example 04:15 or 18:23.");
-		}
+		// Will work on validator later, would alert twice and was annoying
+		// if(!moment(snapshot.val().firstTrainTime, "HH:mm").isValid()) {
+		// 	alert("The train on line " + (globalIndex + 1) + " is not valid.  Please edit train and enter a military time, for example 04:15 or 18:23.");
+		// }
 
 		//Calculating the next train arrival time and the minutes until it arrives
 		var firstTrainMoment = moment(snapshot.val().firstTrainTime, "hh:mm").subtract(1, "years");
